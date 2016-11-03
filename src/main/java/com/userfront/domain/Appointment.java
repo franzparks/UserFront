@@ -11,5 +11,7 @@ public class Appointment {
 	private boolean confirmed;
 	
 	private User user;
+	
+	
 
 }
