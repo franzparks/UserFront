@@ -20,4 +20,8 @@ public class UserServiceImpl implements UserService {
 	public User findByUsername(String username) {
         return userDao.findByUsername(username);
     }
+	
+	public User findByEmail(String email) {
+        return userDao.findByEmail(email);
+    }
 }
