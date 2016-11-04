@@ -81,6 +81,17 @@ public class PrimaryAccount {
 	public void setPrimaryTransactionList(List<PrimaryTransaction> primaryTransactionList) {
 		this.primaryTransactionList = primaryTransactionList;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PrimaryAccount [id=" + id + ", accountNumber=" + accountNumber + ", accountBalance=" + accountBalance
+				+ ", primaryTransactionList=" + primaryTransactionList + "]";
+	}
+	
+	
 	
 	
 
