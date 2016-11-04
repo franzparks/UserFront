@@ -107,6 +107,16 @@ public class Appointment {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Appointment [id=" + id + ", date=" + date + ", location=" + location + ", description=" + description
+				+ ", confirmed=" + confirmed + ", user=" + user + "]";
+	}
+	
 	
 	
 
