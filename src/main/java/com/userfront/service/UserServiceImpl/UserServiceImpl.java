@@ -32,4 +32,12 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+	
+	public boolean checkUsernameExists(String username) {
+        if (null != findByUsername(username)) {
+            return true;
+        }
+
+        return false;
+    }
 }
