@@ -25,9 +25,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/signup",method = RequestMethod.GET)
-	public String signup(@ModelAttribute("user") User user, Model model){
+	public void signup(@ModelAttribute("user") User user, Model model){
 		
-		if(userService.checkUserExists(user.getUsername(), user.getEmail())){
+		/*if(userService.checkUserExists(user.getUsername(), user.getEmail())){
 			
 			if(userService.checkEmailExists(user.getEmail())){
 				model.addAttribute("emailExists", true);
@@ -44,7 +44,7 @@ public class HomeController {
 			userService.createUser(user, userRoles);
 			
 			return "redirect:/";
-		}
+		}*/
 	}
 	
 	@RequestMapping(value = "/signup",method = RequestMethod.POST)
