@@ -53,10 +53,11 @@ public class HomeController {
 
             return "signup";
         } else {
-        	 Set<UserRole> userRoles = new HashSet<>();
-             userRoles.add(new UserRole(user, roleDao.findByName("ROLE_USER")));
+        	 //Set<UserRole> userRoles = new HashSet<>();
+             //userRoles.add(new UserRole(user, roleDao.findByName("ROLE_USER")));
 
-            userService.createUser(user, userRoles);
+            //userService.save(user, userRoles);
+        	userService.save(user);
 
             return "redirect:/";
         }
