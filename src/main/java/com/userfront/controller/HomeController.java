@@ -57,7 +57,7 @@ public class HomeController {
              //userRoles.add(new UserRole(user, roleDao.findByName("ROLE_USER")));
 
             //userService.save(user, userRoles);
-        	userService.save(user);
+        	userService.createUser(user);
 
             return "redirect:/";
         }
