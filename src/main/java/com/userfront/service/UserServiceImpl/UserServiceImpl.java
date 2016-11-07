@@ -18,6 +18,7 @@ import com.userfront.domain.security.UserRole;
 import com.userfront.service.UserService;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
@@ -67,7 +68,7 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 	
-	@Transactional
+	
 	public User createUser(User user, Set<UserRole> userRoles) {
         User localUser = userDao.findByUsername(user.getUsername());
 
