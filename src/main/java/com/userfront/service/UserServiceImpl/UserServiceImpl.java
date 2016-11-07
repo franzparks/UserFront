@@ -1,6 +1,8 @@
 package com.userfront.service.UserServiceImpl;
 
 
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.userfront.Dao.RoleDao;
 import com.userfront.Dao.UserDao;
 import com.userfront.domain.User;
+import com.userfront.domain.security.UserRole;
 import com.userfront.service.UserService;
 
 @Service
@@ -61,5 +64,29 @@ public class UserServiceImpl implements UserService {
         }
 
         return false;
+    }
+	
+	public User createUser(User user, Set<UserRole> userRoles) {
+        User localUser = userDao.findByUsername(user.getUsername());
+
+        if (localUser != null) {
+            LOG.info("User with username {} already exist. Nothing will be done. ", user.getUsername());
+        } else {
+            String encryptedPassword = passwordEncoder.encode(user.getPassword());
+            user.setPassword(encryptedPassword);
+
+            for (UserRole ur : userRoles) {
+                roleDao.save(ur.getRole());
+            }
+
+            user.getUserRoles().addAll(userRoles);
+
+            //user.setPrimaryAccount(accountService.createPrimaryAccount());
+            //user.setSavingsAccount(accountService.createSavingsAccount());
+
+            localUser = userDao.save(user);
+        }
+
+        return localUser;
     }
 }
