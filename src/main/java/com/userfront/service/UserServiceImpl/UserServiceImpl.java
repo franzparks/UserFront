@@ -1,5 +1,9 @@
 package com.userfront.service.UserServiceImpl;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +13,8 @@ import com.userfront.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
 	
 	@Autowired
 	private UserDao userDao;
