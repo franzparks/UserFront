@@ -3,8 +3,9 @@ package com.userfront.service.UserServiceImpl;
 
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -66,6 +67,7 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 	
+	@Transactional
 	public User createUser(User user, Set<UserRole> userRoles) {
         User localUser = userDao.findByUsername(user.getUsername());
 
