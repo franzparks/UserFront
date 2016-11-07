@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.userfront.Dao.RoleDao;
 import com.userfront.Dao.UserDao;
 import com.userfront.domain.User;
 import com.userfront.service.UserService;
@@ -15,6 +16,9 @@ import com.userfront.service.UserService;
 public class UserServiceImpl implements UserService {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
+	
+	@Autowired
+	private RoleDao roleDao;
 	
 	@Autowired
 	private UserDao userDao;
