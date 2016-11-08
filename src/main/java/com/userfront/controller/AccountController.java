@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -75,6 +76,13 @@ public class AccountController {
         model.addAttribute("amount", "");
 
         return "withdraw";
+    }
+	
+	@RequestMapping(value = "/withdraw", method = RequestMethod.POST)
+    public String withdrawPOST(@ModelAttribute("amount") String amount, @ModelAttribute("accountType") String accountType, Principal principal) {
+        accountService.withdraw(accountType, Double.parseDouble(amount), principal);
+
+        return "redirect:/userFront";
     }
 
 }
