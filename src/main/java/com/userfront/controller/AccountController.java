@@ -61,5 +61,12 @@ public class AccountController {
 
         return "deposit";
     }
+	
+	@RequestMapping(value = "/deposit", method = RequestMethod.POST)
+    public String depositPOST(@ModelAttribute("amount") String amount, @ModelAttribute("accountType") String accountType, Principal principal) {
+        accountService.deposit(accountType, Double.parseDouble(amount), principal);
+
+        return "redirect:/userFront";
+    }
 
 }
